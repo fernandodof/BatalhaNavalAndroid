@@ -11,11 +11,6 @@ public class Teste {
 
 		for (int i = 0; i < 50; i++) {
 			GameManager gameManager = new GameManager();
-			gameManager.criaNavios();
-			gameManager.criarSubmarinos();
-			gameManager.criarSubmarinos();
-			gameManager.criarTanques();
-			gameManager.criarTanques();
 			gameManager.imprimeMatriz();
 			System.out.println("");
 			System.out.println("");

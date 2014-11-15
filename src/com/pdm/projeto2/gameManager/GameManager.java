@@ -7,10 +7,15 @@ public class GameManager {
 	private char[][] mar = new char[9][9];
 
 	public GameManager() {
-		instanciateMatrix();
+		this.iniciateMatrix();
+		this.criaNavios();
+		this.criarSubmarinos();
+		this.criarSubmarinos();
+		this.criarTanques();
+		this.criarTanques();
 	}
 
-	private void instanciateMatrix() {
+	private void iniciateMatrix() {
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
 				this.mar[i][j] = '_';
@@ -18,17 +23,17 @@ public class GameManager {
 		}
 	}
 
-	public int getRandomNumber() {
+	private int getRandomNumber() {
 		Random random = new Random();
 		return random.nextInt((9 - 1) + 1);
 	}
 
-	public int getEixo() {
+	private int getEixo() {
 		Random random = new Random();
 		return random.nextInt((2 - 1) + 1) + 1;
 	}
 
-	public void criaNavios() {
+	private void criaNavios() {
 		if (getEixo() == 1) {
 			// Vertical
 			int inicioV = getRandomNumber();
@@ -62,7 +67,7 @@ public class GameManager {
 		}
 	}
 	
-	public void criarSubmarinos(){
+	private void criarSubmarinos(){
 		int inicioV = getRandomNumber();
 		int inicioH = getRandomNumber();
 		while (inicioV > 7 || inicioH > 7
@@ -76,7 +81,7 @@ public class GameManager {
 		this.mar[++inicioV][inicioH] = 'S';
 	}
 	
-	public void criarTanques(){
+	private void criarTanques(){
 		int inicioV = getRandomNumber();
 		int inicioH = getRandomNumber();
 		while (this.mar[inicioV][inicioH] != '_') {
@@ -94,6 +99,10 @@ public class GameManager {
 			}
 			System.out.println(" ");
 		}
+	}
+	
+	public char[][] getMar(){
+		return this.mar;
 	}
 
 }
